@@ -1,12 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { MaterialModule } from './shared/material.module';
-import { FormsModule } from '@angular/forms';
- 
+
+
+const routes: Routes = [
+  { path: 'contactmanager', loadChildren: './contactmanager/contactmanager.module#ContactmanagerModule' },
+  { path: 'demo', loadChildren: './demo/demo.module#DemoModule' },
+  { path: '**', redirectTo: 'contactmanager' }
+];
 
 @NgModule({
   declarations: [
@@ -15,8 +19,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule,
-    FormsModule
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]
