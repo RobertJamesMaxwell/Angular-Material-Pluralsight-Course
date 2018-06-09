@@ -10,10 +10,13 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 import { ContactmanagerAppComponent } from './contactmanager-app.component';
 import { MaterialModule } from '../shared/material.module';
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   { path: '', component: ContactmanagerAppComponent,
     children: [
+      { path: ':id', component: MainContentComponent},
       { path: '', component: MainContentComponent}
     ]
   },
@@ -23,10 +26,14 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    HttpClientModule,
     FormsModule,
     FlexLayoutModule,
     MaterialModule,
     RouterModule.forChild(routes),
+  ],
+  providers: [
+    UserService
   ],
   declarations: [ContactmanagerAppComponent, ToolbarComponent, MainContentComponent, SidenavComponent]
 })
