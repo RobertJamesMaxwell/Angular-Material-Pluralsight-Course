@@ -12,6 +12,7 @@ import { ContactmanagerAppComponent } from './contactmanager-app.component';
 import { MaterialModule } from '../shared/material.module';
 import { UserService } from './services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NotesComponent } from './components/notes/notes.component';
 
 const routes: Routes = [
   { path: '', component: ContactmanagerAppComponent,
@@ -35,6 +36,6 @@ const routes: Routes = [
   providers: [
     UserService
   ],
-  declarations: [ContactmanagerAppComponent, ToolbarComponent, MainContentComponent, SidenavComponent]
+  declarations: [ContactmanagerAppComponent, ToolbarComponent, MainContentComponent, SidenavComponent, NotesComponent]
 })
 export class ContactmanagerModule { }
